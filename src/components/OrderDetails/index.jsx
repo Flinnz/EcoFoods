@@ -51,7 +51,11 @@ class OrderDetails extends Component {
         const config = MakeConfig(token.get());
         axios.get(url, config)
             .then(resp => {
-                this.setState({loaded: true, order: resp.data.filter(a => a.uuid === this.state.orderId)[0]})
+                this.setState({loaded: true, order: resp.data.filter(a => a.uuid === this.state.orderId)[0]});
+                return axios.post(URL + 'api/get_delivery/', {order_uuid: this.state.orderId});
+            })
+            .then(resp => {
+                console.log(resp.data);
             })
             .catch(err => console.error(err));
     }

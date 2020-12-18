@@ -29,7 +29,7 @@ class DeliveryPage extends Component {
             house: '',
             apartment: '',
             additional: '',
-            fullAddress: props.address || '',
+            fullAddress: props.fullAddress || '',
         };
     }
 
